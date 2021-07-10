@@ -4,5 +4,7 @@
     <%= article.content %>
     <p class="card-text"><small class="text-muted">Créé le <%= article.created_at.strftime("%d/%m/%Y")
       %> </small></p>
+    <p><%= article[:private]? "Article privé" : "" %></p>
+
   </div>
 </div>

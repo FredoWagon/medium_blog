@@ -7,4 +7,7 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :title, presence: true
 
+
+  scope :availables, -> { where(private: false) }
+
 end
