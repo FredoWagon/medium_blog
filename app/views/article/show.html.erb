@@ -14,16 +14,21 @@
       <h4>Commentaires</h4>
       <div class="row">
         <div class="col-sm-12 col-md-8">
-          <div class="article__comment">
+          <div id="comment__container" class="article__comment">
             <%  @article.comments.each do |comment| %>
-              <%= render partial: "comment_card", locals: { comment: comment} %>
+              <%= render partial: "./comment/comment_card", locals: { comment: comment} %>
             <%end %>
           </div>
         </div>
 
        <div class="col-sm-12 col-md-4">
          <div class="article__create__comment-section">
+           <% if user_signed_in?  %>
 
+
+           <%= render partial: "./comment/comment_form", locals: {user: current_user, article: @article} %>
+
+             <% end %>
 
 
          </div>
