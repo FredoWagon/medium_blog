@@ -1,11 +1,7 @@
-<h1>Article#index</h1>
-<p>Find me in app/views/article/index.html.erb</p>
-
-
 <div class="container">
   <div class="row">
     <% @articles.each do |article| %>
-      <%= link_to article_path(article), class: "article_card" do %>
+      <%= link_to "article/#{article.id}", method: :get, class: "article_card" do %>
         <%= render partial: "article_card", locals: {article: article} %>
       <% end %>
     <% end %>

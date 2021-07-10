@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_171746) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "upvotes", force: :cascade do |t|
+  create_table "upvote", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
@@ -103,6 +103,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_171746) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
-  add_foreign_key "upvotes", "articles"
-  add_foreign_key "upvotes", "users"
+  add_foreign_key "upvote", "articles"
+  add_foreign_key "upvote", "users"
 end

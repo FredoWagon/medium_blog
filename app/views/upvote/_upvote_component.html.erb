@@ -1,0 +1,6 @@
+<h5 id="upvote_count_component">Votes : <%= article.upvotes.length %></h5>
+
+<% if !@allready_voted %>
+  <%= link_to "Ajouter un vote",upvote_create_path(:article_id => article.id ), :method => :post, remote: true, id: "upvote_btn"  %>
+  <% end %>
+

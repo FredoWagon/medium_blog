@@ -7,11 +7,13 @@ class ArticleController < ApplicationController
       my_articles = Article.where(user_id: current_user.id)
       @articles = @articles + my_articles
     end
-
   end
 
   def show
     @article = Article.find(params[:id])
+    if current_user
+      @allready_voted = @article.upvotes.where(user_id: current_user.id).present?
+    end
   end
 
   def new
@@ -27,16 +29,6 @@ class ArticleController < ApplicationController
     else
       render('new')
     end
-
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def delete
   end
 
   private

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
+
   root 'article#index'
 
   # Articles
-  resources :article
+  get "/article/:id", to: "article#show"
+  get "/article/new", to: "article#new"
+  post "/article", to: "article#create"
+
 
   post 'comment/create'
+
+  post 'upvote/create'
 
   # Authentification
   devise_for :users

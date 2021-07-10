@@ -19,7 +19,7 @@ User.all.destroy_all
 puts "All users deleted !"
 puts "All articles deleted !"
 puts "All comments deleted !"
-puts "All upvotes deleted !"
+puts "All upvote deleted !"
 
 
 puts "#{Faker::Artist.unique.name}@gmail.com"
