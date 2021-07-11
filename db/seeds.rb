@@ -37,7 +37,7 @@ puts "Create articles"
 User.all.each do |user|
   Article.create!(
     title: Faker::ChuckNorris.unique.fact,
-    content: Faker::Lorem.unique.paragraph,
+    content: Faker::Lorem.paragraphs(number:50),
     user_id: user.id
   )
 end

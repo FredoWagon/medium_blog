@@ -1,10 +1,14 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <%= link_to "Medium_blog", root_path, class: "navbar-brand" %>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
+    <% if controller.action_name == "index" %>
+      <form class="d-flex">
+        <input data-searchbar-target="searchbarinput" data-action="input->searchbar#change" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button data-action="click->searchbar#search" class="btn btn-outline-success" >Search</button>
+      </form>
+    <% end %>
+
     <div>
       <% if user_signed_in? %>
         <%= link_to 'Créer un article', new_article_path%>

@@ -31,6 +31,18 @@ class ArticleController < ApplicationController
     end
   end
 
+  def make_article_public
+    article = Article.find(params[:article_id])
+    article[:private] = false
+    article.save
+
+    puts(article.save)
+
+    respond_to do |format|
+      format.js {render layout: false}
+    end
+  end
+
   private
 
   def article_params

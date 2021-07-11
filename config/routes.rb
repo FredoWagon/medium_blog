@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'article#index'
 
   # Articles
-  get "/article/:id", to: "article#show"
-  get "/article/new", to: "article#new"
-  post "/article", to: "article#create"
+  resources :article
+
+  post 'article/make_article_public'
 
 
   post 'comment/create'

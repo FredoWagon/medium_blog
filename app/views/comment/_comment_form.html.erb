@@ -1,17 +1,23 @@
 
 
-<form action='/comment/create' name="comment" method='post' data-remote='true' class="">
-  <div class="field">
-    <input type="hidden" name="comment[user_id]" value="<%= user.id %>">
-  </div>
-  <div class="field">
-    <input type="hidden" name="comment[article_id]" value="<%= article.id %>">
-  </div>
-  <div class="field">
-    <input type="text" name="comment[content]" autofocus="true">
-  </div>
-  <div class="field">
-    <input type="submit" class="btn btn-primary">
-  </div>
-</form>
+<div class="comment__form">
+  <h2>Laissez un coommentaire</h2>
+  <form action='/comment/create' name="comment" method='post' data-remote='true' class="">
+    <div class="field">
+      <input type="hidden" name="comment[user_id]" value="<%= user.id %>">
+    </div>
+    <div class="field">
+      <input type="hidden" name="comment[article_id]" value="<%= article.id %>">
+    </div>
+    <div class="field">
+      <textarea name="comment[content]" id="" cols="30" rows="10" autofocus="true"></textarea>
+
+    </div>
+    <div class="field">
+      <input type="submit" class="btn btn-primary">
+    </div>
+  </form>
+
+
+</div>
 

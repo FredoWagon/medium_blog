@@ -1,10 +1,14 @@
 <div class="card mb-3">
   <div class="card-body">
     <h5 class="card-title"><%= article.title %></h5>
-    <%= article.content %>
+    <div class="article_card__content">
+      <%= article.content.to_s %>
+    </div>
     <p class="card-text"><small class="text-muted">Créé le <%= article.created_at.strftime("%d/%m/%Y")
-      %> </small></p>
-    <p><%= article[:private]? "Article privé" : "" %></p>
-
+    %> </small></p>
+    <% if article[:private] %>
+      <p id="private_info">Article privé</p>
+      <%= link_to "Rendre public",article_make_article_public_path(:article_id => article.id ), :method => :post, remote: true, id: "go_public_btn"  %>
+    <% end %>
   </div>
 </div>
